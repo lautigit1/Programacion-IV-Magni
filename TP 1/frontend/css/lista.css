@@ -1,0 +1,364 @@
+/* ============================================================
+   Lista de Usuarios Page Styles
+   ============================================================ */
+@import './base.css';
+
+/* ── Layout ───────────────────────────────────────────────── */
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 10% 10%, rgba(108, 123, 255, 0.1) 0%, transparent 50%),
+    var(--color-bg);
+  padding: var(--space-8) var(--space-4);
+}
+
+.page-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ── Header ───────────────────────────────────────────────── */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-8);
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.page-title {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--color-text), var(--color-text-muted));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.page-subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin-top: var(--space-1);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.btn-logout {
+  background: rgba(248,113,113,0.1);
+  color: var(--color-error);
+  border: 1px solid rgba(248,113,113,0.25);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  transition: background-color var(--transition-fast);
+}
+
+.btn-logout:hover {
+  background: rgba(248,113,113,0.2);
+}
+
+/* ── Search bar ───────────────────────────────────────────── */
+.search-bar {
+  display: flex;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+  background: var(--color-bg-card);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.search-input {
+  flex: 1;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-bg-input);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  transition: border-color var(--transition-fast),
+              box-shadow var(--transition-fast);
+}
+
+.search-input::placeholder {
+  color: var(--color-text-dim);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--color-border-focus);
+  box-shadow: 0 0 0 3px rgba(108, 123, 255, 0.2);
+}
+
+.btn-search {
+  padding: var(--space-3) var(--space-6);
+}
+
+.btn-clear {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  transition: background-color var(--transition-fast),
+              color var(--transition-fast);
+}
+
+.btn-clear:hover {
+  background: var(--color-bg-input);
+  color: var(--color-text);
+}
+
+/* ── Stats bar ────────────────────────────────────────────── */
+.stats-bar {
+  display: flex;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.stat-chip {
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.stat-chip span {
+  color: var(--color-text);
+  font-weight: 600;
+  margin-left: var(--space-1);
+}
+
+/* ── Table card ───────────────────────────────────────────── */
+.table-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+/* ── Table ────────────────────────────────────────────────── */
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.users-table thead {
+  background: rgba(108, 123, 255, 0.04);
+  border-bottom: 2px solid var(--color-border-focus);
+}
+
+.users-table th {
+  padding: var(--space-4);
+  text-align: left;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-primary-dark);
+}
+
+.users-table td {
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  vertical-align: middle;
+}
+
+.users-table tbody tr {
+  transition: background-color var(--transition-fast);
+}
+
+.users-table tbody tr:hover {
+  background-color: rgba(108, 123, 255, 0.06);
+}
+
+.users-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ── Row states (active vs blocked) ──────────────────────── */
+.row-active {
+  border-left: 3px solid var(--color-active-border);
+}
+
+.row-blocked {
+  background-color: rgba(58,26,26,0.3) !important;
+  border-left: 3px solid var(--color-blocked-border);
+}
+
+/* ── Status badge ─────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-3);
+  border-radius: 999px;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.badge-active {
+  background-color: var(--color-active-bg);
+  color: var(--color-active-text);
+  border: 1px solid rgba(34,197,94,0.3);
+}
+
+.badge-active::before {
+  background-color: var(--color-active-text);
+}
+
+.badge-blocked {
+  background-color: var(--color-blocked-bg);
+  color: var(--color-blocked-text);
+  border: 1px solid rgba(239,68,68,0.3);
+}
+
+.badge-blocked::before {
+  background-color: var(--color-blocked-text);
+}
+
+/* ── Role badge ───────────────────────────────────────────── */
+.role-badge {
+  display: inline-block;
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+}
+
+.role-admin {
+  background: rgba(108, 123, 255, 0.12);
+  color: var(--color-primary-dark);
+  border: 1px solid rgba(108, 123, 255, 0.25);
+}
+
+.role-user {
+  background: rgba(100, 116, 139, 0.1);
+  color: var(--color-text-muted);
+  border: 1px solid rgba(100, 116, 139, 0.2);
+}
+
+/* ── User info cell ───────────────────────────────────────── */
+.user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.user-name {
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.user-email {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+/* ── Actions cell ─────────────────────────────────────────── */
+.actions-cell {
+  display: flex;
+  gap: var(--space-2);
+}
+
+/* ── State containers ─────────────────────────────────────── */
+.state-container {
+  padding: var(--space-16) var(--space-8);
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+.state-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-4);
+}
+
+.state-title {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+}
+
+.state-desc {
+  font-size: var(--font-size-sm);
+}
+
+/* ── Notification toast ───────────────────────────────────── */
+.toast-container {
+  position: fixed;
+  top: var(--space-6);
+  right: var(--space-6);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.toast {
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  min-width: 260px;
+  animation: slideInRight var(--transition-normal) forwards;
+}
+
+.toast-success {
+  background: var(--color-success-bg);
+  color: var(--color-success);
+  border: 1px solid rgba(74,222,128,0.3);
+}
+
+.toast-error {
+  background: var(--color-error-bg);
+  color: var(--color-error);
+  border: 1px solid rgba(248,113,113,0.3);
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0);   }
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .users-table th:nth-child(3),
+  .users-table td:nth-child(3) {
+    display: none;
+  }
+
+  .search-bar {
+    flex-direction: column;
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sistema de gestión de usuarios UTN — Lista de usuarios" />
+  <title>Lista de Usuarios — UTN Sistema</title>
+  <link rel="stylesheet" href="css/lista.css" />
+</head>
+<body>
+
+  <!-- Toast container (positioned fixed at top-right) -->
+  <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <div class="page-wrapper">
+
+    <!-- Page header -->
+    <header class="page-header">
+      <div>
+        <h1 class="page-title">Gestión de Usuarios</h1>
+        <p class="page-subtitle">Bienvenido, <span id="welcomeUser"></span></p>
+      </div>
+      <div class="header-actions">
+        <button id="logoutBtn" class="btn-logout" aria-label="Cerrar sesión">
+          Cerrar sesión
+        </button>
+      </div>
+    </header>
+
+    <!-- Search bar -->
+    <section class="search-bar" aria-label="Búsqueda de usuarios">
+      <input
+        id="searchInput"
+        type="search"
+        class="search-input"
+        placeholder="Buscar por nombre, apellido o usuario…"
+        aria-label="Buscar usuario"
+        maxlength="50"
+      />
+      <button id="searchBtn" class="btn btn-primary btn-search" aria-label="Buscar">
+        🔍 Buscar
+      </button>
+      <button id="clearBtn" class="btn-clear" aria-label="Limpiar búsqueda">
+        Limpiar
+      </button>
+    </section>
+
+    <!-- Stats bar -->
+    <div class="stats-bar" aria-label="Estadísticas de usuarios">
+      <div class="stat-chip">Total: <span id="totalCount">—</span></div>
+      <div class="stat-chip">Activos: <span id="activeCount">—</span></div>
+      <div class="stat-chip">Bloqueados: <span id="blockedCount">—</span></div>
+    </div>
+
+    <!-- Users table -->
+    <main class="table-card" role="main">
+      <table class="users-table" aria-label="Tabla de usuarios">
+        <thead>
+          <tr>
+            <th scope="col">Usuario</th>
+            <th scope="col">Nombre de cuenta</th>
+            <th scope="col">Rol</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Creado</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <!-- Populated dynamically by lista.js -->
+        </tbody>
+      </table>
+    </main>
+
+  </div>
+
+  <!-- Scripts loaded in dependency order -->
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/lista.js"></script>
+
+</body>
+</html>
