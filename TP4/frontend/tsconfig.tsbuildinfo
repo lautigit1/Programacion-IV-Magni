@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/components/filtros.tsx","./src/components/formulario.tsx","./src/components/participantecard.tsx","./src/components/participantesejemplo.tsx","./src/context/participantescontext.tsx","./src/models/participante.ts","./src/services/participantesservice.ts"],"version":"5.9.3"}
